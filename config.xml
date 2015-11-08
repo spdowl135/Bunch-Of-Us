@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.phonegap" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Sample Applicaion</name>
+    <name>Bunch Of Us</name>
     <description>
-        Hello World sample application that responds to the deviceready event or events.
+        a social media site where groups of people come to socialize. Users can instant message with members of groups that have been created relating to a specific event or subject.
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
         Jack and Stephen Dowling
