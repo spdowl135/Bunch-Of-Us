@@ -1,0 +1,301 @@
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	margin-top: 0px;
+	font: 0.8em Verdana;
+}
+
+#homecontent {
+	position: absolute;
+	top: 6em;
+	height: auto;
+	background-color: #ffffff;
+	width: 99%;
+}
+
+#homeleft {
+	width: 20%;
+	float: left;
+	background-color: #b7b7ff;
+	height: auto;
+	min-height: 70em;
+	border-right: 1px black solid;
+	padding: 1%;
+}
+
+#homecenter {
+	width: 51.7%;
+	left: 21%;
+	height: auto;
+	float: left;
+	padding: 1%;
+	margin-right: 1%;
+}
+
+#homeright {
+	width: 20.6%;
+	float: left;
+	left: 81%;
+	padding: 1%;
+	height: auto;
+	border-left: 1px black solid;
+	background-color: #b7b7ff;
+	min-height: 70em;
+}
+
+#hometop {
+	height: 6em;
+	width: 98.6%;
+	padding-top: 0.5em;
+	padding-left: 1.0em;
+	background-color: #8080ff;
+	border-bottom: 2px black solid;
+}
+
+#hometopleft {
+	height: 6em;
+	width: 25%;
+	background-color: #8080ff;
+	float: left;
+}
+
+#menu
+{
+	height: 1.5em;
+	top: 6em;
+	float: left;
+	margin-top: 50px;
+	padding: 1em;
+}
+
+#hometopright {
+	height: 6em;
+	width: 65%;
+	background-color: #8080ff;
+	float: right;
+}
+#footer {
+	clear: both; float: left; text-align: center; width: 99.3%; border-top: 1px black solid; border-bottom: 2px black solid;
+}
+
+.bot {
+	display:none;	
+}
+
+
+label {
+width: 5em;
+float: left;
+text-align: right;
+margin-right: 0.8em;
+display: block;
+}
+
+.submit input {
+margin-left: 5em;
+}
+
+input {
+color: #000000;
+background: #f5f5f5;
+border: 1px solid #781351;
+}
+
+.submit input {
+color: #400000;
+background: #8080ff;
+border: 2px outset #000000;
+}
+
+fieldset {
+border: 1px solid #000000;
+width: 22em;
+}
+
+legend {
+color: #400000;
+background: #8080ff;
+border: 1px solid #000000;
+}
+
+.autosuggest, .dropdown, .result {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 250px;
+}
+
+.autosuggest {
+	padding: 4px;
+	border: 1px black solid;
+}
+
+.result {
+	width: 250px;
+	list-style: none;
+}
+
+.result li {
+	padding: 5px;
+	border: 1px black solid;
+	border-top: 0;
+	cursor: pointer;
+}
+
+.result li:hover {
+	background: black;
+	color: white;
+}
+
+.search {
+	padding-top: 2px;
+	padding-bottom: 2px;
+	size: 10;
+}
+
+#landingleft {
+	width: 25%;
+	float: left;
+	background-color: #b7b7ff;
+	min-height: 50em;
+	border-right: 1px black solid;
+	padding: 1%;
+}
+
+#landingright {
+	width: 67%;
+	float: right;
+	background-color: #ffffff;
+	min-height: 50em;
+	border-right: 1px black solid;
+	padding: 1%;
+	margin-right: 0.8%;
+}
+
+
+@font-face
+{
+font-family: myFirstFont;
+src: url('bendable.ttf'),
+     url('bendable.eot') format("opentype"); /* IE */
+}
+
+.bunchofus {
+	font-family: myFirstFont;
+	color: #ee1c11;
+	text-decoration: none;
+	top: 0px;
+	font-size: 20px;
+	padding-bottom: 2px;
+}
+
+.needtologin {
+	color: red;
+}
+
+.links 
+{
+	text-decoration: none;
+	color: red;
+}
+
+#mobile {
+	top: 9em;
+	height: auto;
+}
+
+.postedby {
+	color: red;
+	text-decoration: none;
+}
+
+.when {
+	color: #235D79;
+}
+
+#topbar {
+ width: 100%;
+background-color: #b7b7ff;
+	top: 0;
+	left: 0;
+	text-align: center;
+	position: fixed;
+	height: 35px;
+	box-shadow: 1px;
+z-index: 1;
+}
+
+#bottombar {
+ width: 100%;
+background-color: #b7b7ff;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	position: fixed;
+	height: 30px;
+	box-shadow: 1px;
+z-index: 1;
+}
+
+.clear {
+	clear: both;
+}
+
+#listbutton {
+	float: right;
+	display: block;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 2px;
+	cursor: pointer;
+}
+
+#homebutton {
+	float: left;
+	display: block;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 2px;
+	cursor: pointer;
+}
+
+#content {
+	background-color: white;
+	font-size: 10px;
+	margin-top:35px;
+}
+
+.searchterm {
+	color: red;
+	font-style: italic;
+}
+
+#primary_nav ul {
+    list-style: none;
+    background: #E9E6ED;
+    padding: 5px 0;
+}
+#primary_nav li a {
+    display: block;
+    padding: 0 25px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    letter-spacing: 0.2em;
+    line-height: 4em;
+    height: 4em;
+    border-bottom: 1px solid #383838;
+}
+#primary_nav li:last-child a {
+    border-bottom: none;
+}
+#primary_nav li a:hover,
+#primary_nav li a:focus {
+    color: #1c1c1c;
+    background: #ccc;
+}
