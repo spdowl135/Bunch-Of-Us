@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.phonegap" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Sample Applicaion</name>
+    <name>Bunch Of Us</name>
     <description>
-        Hello World sample application that responds to the deviceready event or events.
+        Bunch Of Us is a social media site where groups of people come to socialize. 
+        Users can instant message with members of groups that have been created relating to a specific event or subject.
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
         Jack and Stephen Dowling
     </author>
-    <content src="index.html" />
+    <content src="myhome.html" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
@@ -41,7 +42,7 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
-    <icon src="icon.png" />
+    <icon src="bou-icon-72.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/bou-icon-36.png" />
     <icon gap:platform="android" gap:qualifier="mdpi" src="www/res/icon/android/bou-icon-48.png" />
     <icon gap:platform="android" gap:qualifier="hdpi" src="www/res/icon/android/bou-icon-72.png" />
