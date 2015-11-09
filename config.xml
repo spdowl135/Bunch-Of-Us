@@ -2,8 +2,12 @@
 <widget id="com.phonegap.phonegap" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Bunch Of Us</name>
     <description>
+<<<<<<< HEAD
         Bunch Of Us is a social media site where groups of people come to socialize. 
         Users can instant message with members of groups that have been created relating to a specific event or subject.
+=======
+        a social media site where groups of people come to socialize. Users can instant message with members of groups that have been created relating to a specific event or subject.
+>>>>>>> origin/master
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
         Jack and Stephen Dowling
