@@ -2,6 +2,7 @@
 include 'functions2.php';
 ?>
 <?php 
+/*
 if(isset($_COOKIE['yoozerx']))
 {
 $sessionuser = $_COOKIE['yoozerx'];
@@ -19,4 +20,6 @@ exit();
 }
 }
 include("mequery.php");
+ * 
+ */
 ?>
