@@ -299,3 +299,84 @@ z-index: 1;
     color: #1c1c1c;
     background: #ccc;
 }
+/* Cell Phone Portrait*/
+@media only screen 
+    and (max-device-width: 799px), 
+    only screen and (max-device-width: 799px), 
+    only screen and (max-width: 480px)
+{
+#primary_nav ul {
+    list-style: none;
+    background: #E9E6ED;
+    padding: 5px 0;
+}
+
+#primary_nav li {
+  line-height: 35px;
+  padding-bottom: 3px;
+  padding-left: 15px;
+  padding-top: 3px;
+}
+
+#primary_nav li a {
+    display: block;
+    padding: 0 25px;
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    letter-spacing: 0.2em;
+    line-height: 4em;
+    height: 4em;
+    border-bottom: 1px solid #383838;
+}
+#primary_nav li:last-child a {
+    border-bottom: none;
+}
+#primary_nav li a:hover,
+#primary_nav li a:focus {
+    color: #1c1c1c;
+    background: #ccc;
+}	
+}
+/* ipad Mini Portrait */
+@media only screen and (min-device-width:800px) 
+{
+#primary_nav ul {
+    list-style: none;
+    background: #E9E6ED;
+    padding: 5px 0;
+}
+
+#primary_nav li {
+  line-height: 70px;
+  padding-bottom: 3px;
+  padding-left: 15px;
+  padding-top: 3px;
+}
+
+#primary_nav li a {
+    display: block;
+    padding: 0 25px;
+    font-size: 24px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    letter-spacing: 0.2em;
+    line-height: 4em;
+    height: 4em;
+    border-bottom: 1px solid #383838;
+}
+#primary_nav li:last-child a {
+    border-bottom: none;
+}
+#primary_nav li a:hover,
+#primary_nav li a:focus {
+    color: #1c1c1c;
+    background: #ccc;
+}	
+}
