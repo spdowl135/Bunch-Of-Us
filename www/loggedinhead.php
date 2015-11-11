@@ -1,5 +1,5 @@
 <?php 
-include 'functions2.php';
+include 'http://www.yoozpaper.com/app/functions2.php';
 ?>
 <?php 
 /*
