@@ -216,18 +216,6 @@ src: url('bendable.ttf'),
 	color: #235D79;
 }
 
-#topbar {
- width: 100%;
-background-color: #b7b7ff;
-	top: 0;
-	left: 0;
-	text-align: center;
-	position: fixed;
-	height: 35px;
-	box-shadow: 1px;
-z-index: 1;
-}
-
 #bottombar {
  width: 100%;
 background-color: #b7b7ff;
@@ -312,7 +300,7 @@ z-index: 1;
 }
 
 #primary_nav li {
-  line-height: 35px;
+  line-height: 45px;
   padding-bottom: 3px;
   padding-left: 15px;
   padding-top: 3px;
@@ -322,7 +310,7 @@ z-index: 1;
     display: block;
     padding: 0 25px;
     color: black;
-    font-size: 16px;
+    font-size: 18px;
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
@@ -340,6 +328,19 @@ z-index: 1;
     color: #1c1c1c;
     background: #ccc;
 }	
+
+#topbar {
+ width: 100%;
+background-color: #b7b7ff;
+	top: 0;
+	left: 0;
+	text-align: center;
+	position: fixed;
+	height: 65px;
+	box-shadow: 1px;
+z-index: 1;
+}
+
 }
 /* ipad Mini Portrait */
 @media only screen and (min-device-width:800px) 
@@ -351,7 +352,7 @@ z-index: 1;
 }
 
 #primary_nav li {
-  line-height: 70px;
+  line-height: 90px;
   padding-bottom: 3px;
   padding-left: 15px;
   padding-top: 3px;
@@ -360,7 +361,7 @@ z-index: 1;
 #primary_nav li a {
     display: block;
     padding: 0 25px;
-    font-size: 24px;
+    font-size: 26px;
     color: black;
     text-decoration: none;
     font-weight: bold;
@@ -378,5 +379,17 @@ z-index: 1;
 #primary_nav li a:focus {
     color: #1c1c1c;
     background: #ccc;
+}
+
+#topbar {
+ width: 100%;
+background-color: #b7b7ff;
+	top: 0;
+	left: 0;
+	text-align: center;
+	position: fixed;
+	height: 95px;
+	box-shadow: 1px;
+z-index: 1;
 }	
 }
