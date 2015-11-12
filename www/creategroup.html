@@ -8,7 +8,7 @@
 $(document).ready(function() {
 $('#all').load('http://www.yoozpaper.com/app/loggedinhead.php').show();
 //$('#topbar').load('topbar.php').show();
-$('#recentposts').load('http://www.yoozpaper.com/app/recentposts.php').show();
+//$('#recentposts').load('http://www.yoozpaper.com/app/recentposts.php').show();
 })
 </script>
         <meta name="format-detection" content="telephone=no" />
@@ -16,6 +16,7 @@ $('#recentposts').load('http://www.yoozpaper.com/app/recentposts.php').show();
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/bunch.css" />
   </head>      
 	<body>
@@ -43,9 +44,33 @@ $('#recentposts').load('http://www.yoozpaper.com/app/recentposts.php').show();
 	</div>
 		</h3>
 		<hr />
-<div id = "recentposts">
-	
-</div>
+		<div class="crtgrpheadline">
+			<h2>Create Group</h2>
+		</div>
+		<hr />
+<form action="#" method="post" id="creategroup" name="creategroup" class="creategroup">
+<p><input type = "text" class="forminput" id="grpname" name = 'grpname' maxlength='50' placeholder="Group Name..."></input></p>
+<p><span id="counter"></span><br />
+<textarea rows = "5" name = 'uploadcaption' id='uploadcaption' class="formarea" placeholder="Description (optional)..." maxlength='100' onkeyup='return ismaxlength(this)'></textarea>
+</p>
+<p>
+<select name="rights" class="formdrop" id="rights"><option value="Group">Private</option><option value="Connections">Friends</option><option value="Public">Public</option></select><br />
+</p>
+<p>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <span class="input-group-addon">
+        <input type="checkbox" aria-label="..." name = "autocreate" id="autocreate">
+      </span>
+      <input readonly="readonly" type="text" class="form-control" aria-label="Keep Creating..." placeholder="Keep Creating...">
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+</p>
+<input type='text' class='bot' name='fake1' id="fake1"></input>
+<p><input type = "submit" id="grpsubmit" name= "grpsubmit" class="formsubmit" value = "Create Group"></p>
+</form>
 	<br />
 </div>
 <div class="clear"></div>
@@ -55,6 +80,7 @@ $('#recentposts').load('http://www.yoozpaper.com/app/recentposts.php').show();
 	</div>	
   <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
  <script type="text/javascript">
 
   var _gaq = _gaq || [];

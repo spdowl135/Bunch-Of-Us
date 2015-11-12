@@ -287,6 +287,39 @@ z-index: 1;
     color: #1c1c1c;
     background: #ccc;
 }
+
+.crtgrpheadline {
+	text-align: center;
+}
+
+.forminput {
+	width: 100%;
+	padding: 15px;
+	font-size: 20px;
+	background: white;
+}
+
+.formarea{
+	width: 100%;
+	padding: 15px;
+	font-size: 20px;
+	background: white;
+}
+
+.formdrop {
+	width: 100%;
+	padding: 15px;
+	font-size: 20px;
+	background: white;
+}
+
+.formsubmit {
+	width: 100%;
+	padding: 18px;
+	font-size: 24px;
+	background: blue;
+	color: white;
+}
 /* Cell Phone Portrait*/
 @media only screen 
     and (max-device-width: 799px), 
@@ -347,6 +380,15 @@ z-index: 1;
 	margin-top:75px;
 }
 
+.bunchofus {
+	font-family: myFirstFont;
+	color: #ee1c11;
+	text-decoration: none;
+	top: 2px;
+	font-size: 32px;
+	padding-bottom: 2px;
+}
+
 }
 /* ipad Mini Portrait */
 @media only screen and (min-device-width:800px) 
@@ -403,5 +445,14 @@ z-index: 1;
 	background-color: white;
 	font-size: 13px;
 	margin-top:110px;
+}
+
+.bunchofus {
+	font-family: myFirstFont;
+	color: #ee1c11;
+	text-decoration: none;
+	top: 2px;
+	font-size: 60px;
+	padding-bottom: 2px;
 }
 }
