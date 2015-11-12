@@ -45,35 +45,20 @@ $('#all').load('http://www.yoozpaper.com/app/loggedinhead.php').show();
 		</h3>
 		<hr />
 		<div class="crtgrpheadline">
-			<h2>Create Group</h2>
+			<h2>Search Results</h2>
 		</div>
 		<hr />
-<form action="#" method="post" id="creategroup" name="creategroup" class="creategroup">
-<p><input type = "text" class="forminput" id="grpname" name = 'grpname' maxlength='50' placeholder="Group Name..."></input></p>
-<p><span id="counter"></span><br />
-<textarea rows = "4" name = 'uploadcaption' id='uploadcaption' class="formarea" placeholder="Description (optional)..." maxlength='100' onkeyup='return ismaxlength(this)'></textarea>
-</p>
-<p>
-<select name="rights" class="formdrop" id="rights"><option value="Group">Private</option><option value="Connections">Friends</option><option value="Public">Public</option></select><br />
-</p>
-<br />
-<p>
-<div class="row">
-  <div class="col-lg-6">
-    <div class="input-group">
-      <span class="input-group-addon">
-        <input type="checkbox" aria-label="..." name = "autocreate" id="autocreate">
-      </span>
-      <input readonly="readonly" type="text" class="form-control" aria-label="Keep Creating..." placeholder="Keep Creating...">
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
-</p>
+<form action="#" method="post" id="searchform" name="searchform" class="searchform">
+<p><input type = "text" class="forminput" id="srchname" name = 'srchname' placeholder="Search Here..."></input></p>
 <br />
 <input type='text' class='bot' name='fake1' id="fake1"></input>
-<p><input type = "submit" id="grpsubmit" name= "grpsubmit" class="formsubmit" value = "Create Group"></p>
+<p><input type = "submit" id="srchsubmit" name= "srchsubmit" class="formsubmit" value = "Search"></p>
 </form>
 	<br />
+	<div class="clear"></div>
+<div id="results">
+	
+</div>
 </div>
 <div class="clear"></div>
 <div id= "footer" >

@@ -290,33 +290,34 @@ z-index: 1;
 
 .crtgrpheadline {
 	text-align: center;
+	font-size: 80px;
 }
 
 .forminput {
 	width: 100%;
-	padding: 15px;
-	font-size: 20px;
+	padding: 20px;
+	font-size: 26px;
 	background: white;
 }
 
 .formarea{
 	width: 100%;
-	padding: 15px;
-	font-size: 20px;
+	padding: 20px;
+	font-size: 26px;
 	background: white;
 }
 
 .formdrop {
 	width: 100%;
-	padding: 15px;
-	font-size: 20px;
+	padding: 20px;
+	font-size: 26px;
 	background: white;
 }
 
 .formsubmit {
 	width: 100%;
-	padding: 18px;
-	font-size: 24px;
+	padding: 24px;
+	font-size: 30px;
 	background: blue;
 	color: white;
 }

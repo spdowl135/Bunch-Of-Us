@@ -7,7 +7,7 @@
           <script>
 $(document).ready(function() {
 $('#all').load('loggedinhead.php').show();
-$('#topbar').load('topbar.php').show();
+//$('#topbar').load('topbar.php').show();
 $('#mygroups').load('mygroups.php').show();
 })
 </script>
@@ -22,7 +22,19 @@ $('#mygroups').load('mygroups.php').show();
 <div id = "all">
 <div id="fb-root"></div>	
 <div id="topbar">
-	
+<div id  = "homebutton">
+<a href="myhome.html">
+	<img src = "icon_home_red_32x32.jpg"
+	height = "66"
+	width = "66"></img></a>
+</div>
+<b><a class="bunchofus" href="signin.html">Bunch Of Us</a></b>
+<div id = "listbutton">
+<a href="myhome.html">
+	<img src = "listbutton.png"
+	height = "66"
+	width = "66"></img></a>
+</div>	
 </div>
 <div class="clear"></div>
 <div id = "content">
@@ -31,6 +43,7 @@ $('#mygroups').load('mygroups.php').show();
 	</div>
 		</h3>
 		<hr />
+		<a href="group.html">View Group Page</a>
 		<nav id="primary_nav">
 	<ul>
 <div id = "mygroups">
