@@ -14,7 +14,8 @@
           <!--   <script src="primary.js" type="text/javascript"></script> -->
           <script type="text/javascript">
 jQuery(document).ready(function() {
-jQuery('#joke').load('http://www.bunchofus.com/app/recentposts.php');
+jQuery('#topbar').load('http://www.bunchofus.com/app/topbar.php');	
+jQuery('#posts').load('http://www.bunchofus.com/app/recentposts.php');
 });
 </script>
   </head>      
@@ -22,29 +23,19 @@ jQuery('#joke').load('http://www.bunchofus.com/app/recentposts.php');
 <div id = "all">
 <div id="fb-root"></div>	
 <div id="topbar">
-<div id  = "homebutton">
-<a href="myhome.html">
-	<img src = "icon_home_red_32x32.jpg"
-	height = "66"
-	width = "66"></img></a>
-</div>
-<b><a class="bunchofus" href="signin.html">Bunch Of Us</a></b>
-<div id = "listbutton">
-<a href="myhome.html">
-	<img src = "listbutton.png"
-	height = "66"
-	width = "66"></img></a>
-</div>
+
 </div>
 <div class="clear"></div>
 <div id = "content">
-	<h3><div id = "thisuser">
+	<h2><div id = "thisuser">
 	Steve Dowling	
 	</div>
 		</h3>
 		<hr />
-<div id = "joke">
+<div id = "posts">
+<ul>
 	
+</ul>	
 </div>
 	<br />
 </div>

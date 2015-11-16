@@ -232,23 +232,6 @@ z-index: 1;
 	clear: both;
 }
 
-#listbutton {
-	float: right;
-	display: block;
-	padding-left: 2px;
-	padding-right: 2px;
-	padding-top: 2px;
-	cursor: pointer;
-}
-
-#homebutton {
-	float: left;
-	display: block;
-	padding-left: 2px;
-	padding-right: 2px;
-	padding-top: 2px;
-	cursor: pointer;
-}
 
 #content {
 	background-color: white;
@@ -321,6 +304,60 @@ z-index: 1;
 	background: blue;
 	color: white;
 }
+
+#posts ul {
+list-style: none;
+padding: 4px;	
+}
+
+#thisuser {
+	text-align: center;
+	padding-bottom: 5px;
+}
+
+#topbar {
+ width: 100%;
+background-color: #b7b7ff;
+	top: 0;
+	left: 0;
+	text-align: center;
+	position: fixed;
+	height: 35px;
+	box-shadow: 1px;
+z-index: 1;
+}
+
+#content {
+	background-color: white;
+	font-size: 11px;
+	margin-top:35px;
+}
+
+.bunchofus {
+	font-family: myFirstFont;
+	color: #ee1c11;
+	text-decoration: none;
+	top: 2px;
+	font-size: 32px;
+	padding-bottom: 2px;
+}
+
+#listbutton {
+	float: right;
+	display: block;
+	cursor: pointer;
+	width: 50px;
+	height: 50px;
+}
+
+#homebutton {
+	float: left;
+	display: block;
+	cursor: pointer;
+	width: 50px;
+	height: 50px;
+}
+
 /* Cell Phone Portrait*/
 @media only screen 
     and (max-device-width: 799px), 
@@ -363,31 +400,18 @@ z-index: 1;
     background: #ccc;
 }	
 
-#topbar {
- width: 100%;
-background-color: #b7b7ff;
-	top: 0;
-	left: 0;
-	text-align: center;
-	position: fixed;
-	height: 75px;
-	box-shadow: 1px;
-z-index: 1;
+
+#posts li {
+	display: block;
+	padding: 3px;
+	border-bottom: 1px solid black;
+	font-size: 14px;
 }
 
-#content {
-	background-color: white;
-	font-size: 11px;
-	margin-top:75px;
-}
-
-.bunchofus {
-	font-family: myFirstFont;
-	color: #ee1c11;
-	text-decoration: none;
-	top: 2px;
-	font-size: 32px;
-	padding-bottom: 2px;
+.thisgroupname {
+	font-style: italic;
+	color: red;
+	font-size: 16px;
 }
 
 }
@@ -430,30 +454,16 @@ z-index: 1;
     background: #ccc;
 }
 
-#topbar {
- width: 100%;
-background-color: #b7b7ff;
-	top: 0;
-	left: 0;
-	text-align: center;
-	position: fixed;
-	height: 110px;
-	box-shadow: 1px;
-z-index: 1;
-}	
-
-#content {
-	background-color: white;
-	font-size: 13px;
-	margin-top:110px;
+#posts li {
+	display: block;
+	padding: 3px;
+	border-bottom: 1px solid black;
+	font-size: 16px;
 }
 
-.bunchofus {
-	font-family: myFirstFont;
-	color: #ee1c11;
-	text-decoration: none;
-	top: 2px;
-	font-size: 60px;
-	padding-bottom: 2px;
+.thisgroupname {
+	font-style: italic;
+	color: red;
+	font-size: 18px;
 }
 }
