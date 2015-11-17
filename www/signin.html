@@ -55,8 +55,29 @@
 	<li><a href="forgotpass.html"><button type="button">Forgot Password</button></a></li>
 </ul>
     </div> <!-- /container -->
+    		            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
 <script src="js/bootstrap.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="phonegap.js"></script>
+          <script type="text/javascript" src="js/index.js"></script>
+ <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23661465-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
   </body>
 </html>
