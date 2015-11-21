@@ -29,9 +29,12 @@
     
  jQuery( document ).ready(function() {
   document.addEventListener("deviceready", onDeviceReady, false);	
-//jQuery('#topbar').load('http://www.bunchofus.com/app/topbar.php');	
-jQuery('#posts').load('http://www.bunchofus.com/app/recentposts.php');
 });
+
+function onDeviceReady() {
+	//jQuery('#topbar').load('http://www.bunchofus.com/app/topbar.php');	
+jQuery('#posts').load('http://www.bunchofus.com/app/recentposts.php');
+};
     </script>
  <script src="js/bootstrap.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
