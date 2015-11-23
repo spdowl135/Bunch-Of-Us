@@ -28,11 +28,11 @@
     <script type="text/javascript">
 document.addEventListener('deviceready', this.onDeviceReady, false);	
 //document.addEventListener("deviceready", onDeviceReady, false);
-jQuery( document ).ready(function() {
-	//jQuery('#topbar').load('http://www.bunchofus.com/app/topbar.php');	
-jQuery('#posts').load('http://www.bunchofus.com/app/recentposts.php');
-jQuery('#test').load('test1.txt');
-});
+function onDeviceReady() {
+$('#posts').load('http://www.bunchofus.com/app/recentposts.php');
+$('#test').load('test1.txt');
+};
+//jQuery('#topbar').load('http://www.bunchofus.com/app/topbar.php');	
     </script>
  <script src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
