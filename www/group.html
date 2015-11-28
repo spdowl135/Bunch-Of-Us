@@ -23,14 +23,32 @@ document.getElementById("showurl").innerHTML = secondLevelLocation;
 var grpnmurl = "http://www.bunchofus.com/app/groupname.php?grpid=" + secondLevelLocation; 
 var dataurl = "http://www.bunchofus.com/app/groupshow.php?grpid=" + secondLevelLocation;
 document.getElementById('grpid1').value = secondLevelLocation;
+/*-------Malsup Post-------
+$('#myform').ajaxForm({
+                resetForm: true
+            });
+----------End Malsup-------*/
+$('form').submit(function(){
+var formData = $("#myForm").serialize();
+ $.ajax({
+	type: 'POST',
+	data: formData,
+	url: 'http://www.bunchofus.com/app/upload.php',
+	success: function(data){
+	$('#myForm')[0].reset();
+	},
+	error: function(){
+	console.log(data);
+	alert('There was an error adding your comment');
+	}
+    });
+	return false;
+});
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
 $('.crtgrpheadline').load(grpnmurl);
 setInterval(function() {
 $('#check').load(dataurl);
 }, 3000); // the "3000" here refers to the time to refresh the div.  it is in milliseconds. 
-$('#myform').ajaxForm({
-                resetForm: true
-            });
 };	
     </script>
  <script src="js/bootstrap.js"></script>
@@ -61,7 +79,7 @@ $('#myform').ajaxForm({
 			
 		</div>
 		<hr />
-<form action="http://www.bunchofus.com/app/upload.php" method="post" id="myForm" name="myForm" class="textform" enctype="multipart/form-data">
+<form method="post" id="myForm" name="myForm" class="textform" enctype="multipart/form-data">
 <p><input name="uploaded_file" id="uploaded_file" type="file" class="forminput"/></p>
 <p><span id="counter"></span><br />
 <textarea rows = "4" name = 'uploadcaption' id='uploadcaption' class="formarea" placeholder="Chat Here..." maxlength='200' onkeyup='return ismaxlength(this)'></textarea>
