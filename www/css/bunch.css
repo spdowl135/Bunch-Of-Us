@@ -322,15 +322,15 @@ background-color: #b7b7ff;
 	left: 0;
 	text-align: center;
 	position: fixed;
-	height: 48px;
+	height: 55px;
 	box-shadow: 1px;
 z-index: 1;
 }
 
 #content {
 	background-color: white;
-	font-size: 13px;
-	margin-top:35px;
+	font-size: 15px;
+	margin-top:55px;
 }
 
 .bunchofus {
