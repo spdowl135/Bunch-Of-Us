@@ -109,12 +109,12 @@ color: #400000;
 background: #8080ff;
 border: 2px outset #000000;
 }
-
+/*
 fieldset {
 border: 1px solid #000000;
 width: 22em;
 }
-
+*/
 legend {
 color: #400000;
 background: #8080ff;
@@ -489,11 +489,11 @@ z-index: 1;
 /*-------------Forms on app settings page------------*/
 
 .bnchform {
-padding-left: 8%; 
-padding-right: 8%; 
+padding-left: 7%; 
+padding-right: 7%; 
 padding-top: 3%; 
 padding-bottom: 4%; 
-width: 80%; 
+width: 82%; 
 display: block; 
 background-color: #b7b7ff; 
 margin: 0 auto;
@@ -505,7 +505,8 @@ margin: 0 auto;
 }
 
 .bnchform input{
-	width: 60%;
+	width: 400px;
+	padding: 5px;
 }
 
 .bnchform label{
@@ -517,6 +518,23 @@ margin: 0 auto;
 	color: white;
 	width: 55%;
 	margin-left: 25%;
+}
+
+.bnchform fieldset {
+width: 570px;
+}
+
+.bnchform textarea{
+	width: 400px;
+	padding: 5px;
+}
+
+.bnchform label {
+width: 110px;
+float: left;
+text-align: right;
+margin-right: 0.8em;
+display: block;
 }
 
 /*-------------Forms on app settings page end---------*/

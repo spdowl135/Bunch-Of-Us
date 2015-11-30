@@ -15,6 +15,12 @@
     <script type="text/javascript">
 document.addEventListener('deviceready', this.onDeviceReady, false);	
 function onDeviceReady() {
+var newURL = window.location.href;
+var pathArray = window.location.href.split( '=' );
+var secondLevelLocation = pathArray[1];
+var newLocation = secondLevelLocation.replace(/%27/g, "");
+document.getElementById('newusername').value = newLocation;
+document.getElementById('oldusername').value = newLocation;
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
 /*
 $("#creategroup").submit(function(event){
@@ -62,30 +68,40 @@ $("#creategroup").submit(function(event){
 	<br />
 	<div class="clear"></div>
 	<form name='changeuser' id='changeuser' class="bnchform" method ='post'>
+		<fieldset>
 <h3>Change Username</h3>
-<p><label for = "username">Username: </label><input type = "text" name = 'newusername' <?php echo("VALUE=\"".$userdbme."\"");?>></input></p>
-<input type='hidden' name='oldusername' value='<?php echo $userdbme; ?>'>
+<p><label for = "username">Username: </label><input type = "text" name = 'newusername' id='newusername' value=''></input></p>
+<input type='hidden' name='oldusername' id='oldusername' value='' />
 <p class = "submit"><input type = "submit" class="submitbtn" name= "changeusersubmit" value = "Change Username"></p>
-</form>
-<br />
-<div class="clear"></div>
-<form name='contact' class="grpform" action ='http://www.bunchofus.com/editsettings.php' method ='POST'>
-<fieldset>
-<legend>Update Information</legend>
-<p><label for = "username">Username: </label><input type = "text" readonly='readonly' class='uneditable' name = 'username' <?php echo("VALUE=\"".$userdbme."\"");?>></input></p>
-<p><label for = "email">Email: </label><input type = "text" name = 'email' <?php echo("VALUE=\"".$emaildbme."\"");?>></input><br /></p>
-<p><label for = "newpassword">Old Password: </label><input type = "password" name = 'oldpassword'></input><br /></p>
-<p><label for = "newpassword">New Password: </label><input type = "password" name = 'newpassword'></input><br /></p>
-<p><label for = "repeatpassword">Confirm Password: </label><input type = "password" name = 'repeatpassword'></input><br /></p>
-<input type='text' class='bot' name='fake1'></input>
-<p class = "submit"><input type = "submit" name= "settingsubmit" value = "Update"></p>
 </fieldset>
 </form>
-<br />
 <div class="clear"></div>
-<form enctype="multipart/form-data" name='upload' class="grpform" action ='http://www.bunchofus.com/editprofile.php' method ='POST'>
+<br />
+<div id = "forma">
+	
+</div>
+<div class="clear"></div>
+<form name='updateinfo' id='updateinfo' class="bnchform" method ='POST'>
+	<fieldset>
+<h3>Update Information</h3>
+<p><label for = "username">Username: </label><input type = "text" readonly='readonly' class='uneditable' name = 'username' <?php echo("VALUE=\"".$userdbme."\"");?>></input></p>
+<p><label for = "email">Email: </label><input type = "text" name = 'email' <?php echo("VALUE=\"".$emaildbme."\"");?>></input><br /></p>
+<p><label for = "newpassword">Old Pass: </label><input type = "password" name = 'oldpassword'></input><br /></p>
+<p><label for = "newpassword">New Pass: </label><input type = "password" name = 'newpassword'></input><br /></p>
+<p><label for = "repeatpassword">Confirm Pass: </label><input type = "password" name = 'repeatpassword'></input><br /></p>
+<input type='text' class='bot' name='fake1'></input>
+<p class = "submit"><input type = "submit" class="submitbtn" name= "settingsubmit" value = "Update"></p>
+</fieldset>
+</form>
+<div class="clear"></div>
+<br />
+<div id = "formb">
+	
+</div>
+<div class="clear"></div>
+<form enctype="multipart/form-data" name='updprofile' id='updprofile' class="bnchform" method ='POST'>
 <fieldset>
-<legend>Update Profile</legend>
+<h3>Update Profile</h3>
 Choose your image here:
 <input name="uploaded_file" type="file"/><br />
 <input type='hidden' name='profilename' value='<?php echo $userdbme; ?>'>
@@ -93,25 +109,33 @@ Choose your image here:
 <textarea rows = "5" name = 'uploadcaption' cols='25' id='uploadcaption' maxlength='100' onkeyup='return ismaxlength(this)'><?= "$profiledbme" ?></textarea>
 </p>
 <input type='text' class='bot' name='fake1'></input>
-<p class = "submit"><input type = "submit" name= "profilesubmit" value = "Post"></p>
+<p class = "submit"><input type = "submit" class="submitbtn" name= "profilesubmit" value = "Post"></p>
 </fieldset>
 </form>
-<br />
 <div class="clear"></div>
-<form enctype="multipart/form-data" name='notify' class="grpform" action ='http://www.bunchofus.com/changenotify.php' method ='POST'>
+<br />
+<div id = "formc">
+	
+</div>
+<div class="clear"></div>
+<form enctype="multipart/form-data" name='notify' name='notify' class="bnchform" method ='POST'>
 <fieldset>
-<legend>Notification Settings</legend>
+<h3>Notification Settings</h3>
 E-Mail Notifications Of Group Request: <select name="grpnotify"><option value="<?php echo $grpnotifyme;?>"><?php echo $grpnotifyme;?></option><option value="Yes">Yes</option><option value="No">No</option></select><br /><br />
 E-Mail Notifications Of Friend Request: <select name="friendnotify"><option value="<?php echo $friendnotifyme;?>"><?php echo $friendnotifyme;?></option><option value="Yes">Yes</option><option value="No">No</option></select><br /><br />
 Allow User Access To Post On Fan Page: <select name="fanallow"><option value="<?php echo $fanallowme;?>"><?php echo $fanallowme;?></option><option value="All Users">All Users</option><option value="Friends Only">Friends Only</option></select><br /><br />
 Send E-Mail If New Group Post: <select name="newgrouppost"><option value="<?php echo $sendemailme;?>"><?php echo $formtimeme;?></option><option value=0>Never E-Mail</option><option value=30>30 Minutes Apart</option><option value=60>60 Minutes Apart</option><option value=240>4 Hours Apart</option><option value=720>12 Hours Apart</option><option value=1440>24 Hours Apart</option><option value=10080>7 Days Apart</option></select>
 </p>
 <input type='text' class='bot' name='fake1'></input>
-<p class = "submit"><input type = "submit" name= "notifysubmit" value = "Submit"></p>
+<p class = "submit"><input type = "submit" class="submitbtn" name= "notifysubmit" value = "Submit"></p>
 </fieldset>
 </form>
 <div class="clear"></div>
-<br />	
+<br />
+<div id = "formd">
+	
+</div>	
+<div class="clear"></div>
 </div>
 <div class="clear"></div>
 <div id= "footer" >
