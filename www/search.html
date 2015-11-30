@@ -17,6 +17,32 @@
 document.addEventListener('deviceready', this.onDeviceReady, false);	
 function onDeviceReady() {
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
+/*
+$('form').submit(function(){
+var formData = $("#searchform").serialize();
+ $.ajax({
+	type: 'POST',
+	data: formData,
+	url: 'http://www.bunchofus.com/app/search.php',
+	success: function(data){
+	$('#searchform')[0].reset();
+	$('#results').html(data);
+	},
+	error: function(){
+	console.log(data);
+	alert('There was an error with your search');
+	}
+    });
+	return false;
+});
+*/
+$("#searchform").submit(function(event){
+    event.preventDefault();
+    $.post( 'http://www.bunchofus.com/app/search.php', $("#searchform").serialize(), function(data){
+        $("#results").html(data);
+        $('#searchform')[0].reset();
+    });
+});
 };	
     </script>
  <script src="js/bootstrap.js"></script>
@@ -43,23 +69,18 @@ $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
 </div>
 <div class="clear"></div>
 <div id = "content">
-	<h3><div id = "thisuser">
-		
-	</div>
-		</h3>
 		<hr />
 		<div class="crtgrpheadline">
-			<h2>Search Results</h2>
+			<h2>Search Form</h2>
 		</div>
 		<hr />
-<form action="#" method="post" id="searchform" name="searchform" class="searchform">
+<form method="post" id="searchform" name="searchform" class="searchform" enctype="multipart/form-data">
 <p><input type = "text" class="forminput" id="srchname" name = 'srchname' placeholder="Search Here..."></input></p>
 <br />
-<input type='text' class='bot' name='fake1' id="fake1"></input>
 <p><input type = "submit" id="srchsubmit" name= "srchsubmit" class="formsubmit" value = "Search"></p>
 </form>
 	<br />
-	<div class="clear"></div>
+		<div class="clear"></div>
 <div id="results">
 	
 </div>

@@ -16,6 +16,13 @@
 document.addEventListener('deviceready', this.onDeviceReady, false);	
 function onDeviceReady() {
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
+$("#creategroup").submit(function(event){
+    event.preventDefault();
+    $.post( 'http://www.bunchofus.com/app/creategroup.php', $("#creategroup").serialize(), function(data){
+        $("#result").html(data);
+        $('#creategroup')[0].reset();
+    });
+});
 };	
     </script>
  <script src="js/bootstrap.js"></script>
@@ -51,7 +58,7 @@ $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
 			<h2>Create Group</h2>
 		</div>
 		<hr />
-<form action="#" method="post" id="creategroup" name="creategroup" class="creategroup">
+<form method="post" id="creategroup" name="creategroup" class="creategroup">
 <p><input type = "text" class="forminput" id="grpname" name = 'grpname' maxlength='50' placeholder="Group Name..."></input></p>
 <p><span id="counter"></span><br />
 <textarea rows = "4" name = 'uploadcaption' id='uploadcaption' class="formarea" placeholder="Description (optional)..." maxlength='100' onkeyup='return ismaxlength(this)'></textarea>
@@ -77,6 +84,9 @@ $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
 <p><input type = "submit" id="grpsubmit" name= "grpsubmit" class="formsubmit" value = "Create Group"></p>
 </form>
 	<br />
+	<div id = "result">
+		
+	</div>
 </div>
 <div class="clear"></div>
 <div id= "footer" >

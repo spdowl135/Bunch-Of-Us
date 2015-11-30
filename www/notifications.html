@@ -16,6 +16,15 @@
 document.addEventListener('deviceready', this.onDeviceReady, false);	
 function onDeviceReady() {
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
+/*
+$("#creategroup").submit(function(event){
+    event.preventDefault();
+    $.post( 'http://www.bunchofus.com/app/creategroup.php', $("#creategroup").serialize(), function(data){
+        $("#result").html(data);
+        $('#creategroup')[0].reset();
+    });
+});
+*/
 };	
     </script>
  <script src="js/bootstrap.js"></script>
@@ -32,7 +41,7 @@ $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script> 
+</script>  
   </head>      
 	<body>
 <div id = "all">
@@ -42,26 +51,45 @@ $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
 </div>
 <div class="clear"></div>
 <div id = "content">
-	<h3><div id = "thisuser">
-		
-	</div>
-		</h3>
-		<hr />
 		<div class="crtgrpheadline">
-			<h2>Search Results</h2>
+			<h2>Notifications</h2>
 		</div>
 		<hr />
-<form action="#" method="post" id="searchform" name="searchform" class="searchform">
-<p><input type = "text" class="forminput" id="srchname" name = 'srchname' placeholder="Search Here..."></input></p>
-<br />
-<input type='text' class='bot' name='fake1' id="fake1"></input>
-<p><input type = "submit" id="srchsubmit" name= "srchsubmit" class="formsubmit" value = "Search"></p>
-</form>
-	<br />
-	<div class="clear"></div>
-<div id="results">
+<h2>Friend Requests</h2>
+<div id = "friendphp">
 	
 </div>
+<form action='http://www.bunchofus.com/mobile/confirmfriend.php' method='post'>
+<input type='hidden' name='user2' value='<?php echo $yoozer2; ?>'>
+<input type='hidden' name='me' value='<?php echo $userdbme; ?>'>
+<input type='text' class='bot' name='fake1'></input><input type='Submit' name='confirm-submit' class='search' value='Confirm Friend'>
+</form>
+<div class="clear"></div>
+<form action='http://www.bunchofus.com/mobile/denyfriend.php' method='post'>
+<input type='hidden' name='user3' value='<?php echo $yoozer2; ?>'>
+<input type='hidden' name='me' value='<?php echo $userdbme; ?>'>
+<input type='text' class='bot' name='fake1'></input><input type='Submit' name='remove-submit' class='search' value='Deny Friend'>
+</form>
+<br />
+<div class="clear"></div>
+<h2>Group Requests</h2>
+<div id = "grpphp">
+	
+</div>
+<form action='http://www.bunchofus.com/mobile/acceptgroup.php' method='post'>
+<input type='hidden' name='reqid' value='<?php echo $request2a; ?>'>
+<input type='hidden' name='grpid' value='<?php echo $grpidact2a; ?>'>
+<input type='hidden' name='grpurl' value='<?php echo $grpurl2aa; ?>'>
+<input type='hidden' name='grpactive' value='<?php echo $active2aa; ?>'>
+<input type='hidden' name='me' value='<?php echo $userdbme; ?>'>
+<input type='text' class='bot' name='fake1'></input><input type='Submit' name='confirm-submit' class='search' value='Accept Request'>
+</form>
+<div class="clear"></div>
+<form action='http://www.bunchofus.com/mobile/declinegroup.php' method='post'>
+<input type='hidden' name='reqid' value='<?php echo $request2a; ?>'>
+<input type='text' class='bot' name='fake1'></input><input type='Submit' name='remove-submit' class='search' value='Decline Request'>
+</form>
+<br />
 </div>
 <div class="clear"></div>
 <div id= "footer" >
@@ -71,6 +99,5 @@ $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
         <script type="text/javascript">
             app.initialize();
         </script>
-
 </body>
 </html>

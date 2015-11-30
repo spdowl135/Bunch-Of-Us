@@ -329,7 +329,7 @@ z-index: 1;
 
 #content {
 	background-color: white;
-	font-size: 15px;
+	font-size: 18px;
 	margin-top:55px;
 }
 
@@ -466,4 +466,22 @@ z-index: 1;
 	color: red;
 	font-size: 18px;
 }
+}
+
+#appprofile {
+	width: 100%;
+	height: 200px;
+	box-shadow: 0px 3px;
+	
+}
+
+#propic {
+	width: 200px;
+	float: left;
+}
+
+#proname {
+	float: right;
+	text-align: center;
+	margin-right: 200px;
 }
