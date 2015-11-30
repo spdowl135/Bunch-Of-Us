@@ -61,14 +61,11 @@ $("#creategroup").submit(function(event){
 	</div>
 	<br />
 	<div class="clear"></div>
-	<form name='change' class="grpform" action ='http://www.bunchofus.com/changeusername.php' method ='POST'>
-<fieldset>
-<legend>Change Username</legend>
+	<form name='changeuser' id='changeuser' class="bnchform" method ='post'>
+<h3>Change Username</h3>
 <p><label for = "username">Username: </label><input type = "text" name = 'newusername' <?php echo("VALUE=\"".$userdbme."\"");?>></input></p>
 <input type='hidden' name='oldusername' value='<?php echo $userdbme; ?>'>
-<input type='text' class='bot' name='fake1'></input>
-<p class = "submit"><input type = "submit" name= "changeusersubmit" value = "Change Username"></p>
-</fieldset>
+<p class = "submit"><input type = "submit" class="submitbtn" name= "changeusersubmit" value = "Change Username"></p>
 </form>
 <br />
 <div class="clear"></div>
