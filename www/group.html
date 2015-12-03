@@ -16,18 +16,30 @@
     <script type="text/javascript">
 document.addEventListener('deviceready', this.onDeviceReady, false);	
 function onDeviceReady() {
+/*-----------Log in and local storage key------*/
+var items = window.localStorage.getItem('user_name');
+if (items === null || items.length === 0)
+{
+    window.location = "index.html";
+}
+else
+{
+	//User is logged in!
+}
+/*-------End of log in and storage key---------*/
+
+/*----------URL information-------*/
 var newURL = window.location.href;
 var pathArray = window.location.href.split( '=' );
 var secondLevelLocation = pathArray[1];
 document.getElementById("showurl").innerHTML = secondLevelLocation;
 var grpnmurl = "http://www.bunchofus.com/app/groupname.php?grpid=" + secondLevelLocation; 
 var dataurl = "http://www.bunchofus.com/app/groupshow.php?grpid=" + secondLevelLocation;
+/*------End of URL info--------*/
+
+/*--------Form Processing-------*/
 document.getElementById('grpid1').value = secondLevelLocation;
-/*-------Malsup Post-------
-$('#myform').ajaxForm({
-                resetForm: true
-            });
-----------End Malsup-------*/
+document.getElementById('user_name1').value = items;
 $('form').submit(function(){
 var formData = $("#myForm").serialize();
  $.ajax({
@@ -44,8 +56,12 @@ var formData = $("#myForm").serialize();
     });
 	return false;
 });
+/*-------End Form Processing---------*/
+
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
 $('.crtgrpheadline').load(grpnmurl);
+var sw = screen.width;
+var sh = screen.height;
 setInterval(function() {
 $('#check').load(dataurl);
 }, 3000); // the "3000" here refers to the time to refresh the div.  it is in milliseconds. 
@@ -85,6 +101,7 @@ $('#check').load(dataurl);
 <textarea rows = "4" name = 'uploadcaption' id='uploadcaption' class="formarea" placeholder="Chat Here..." maxlength='200' onkeyup='return ismaxlength(this)'></textarea>
 </p>
 <input type='hidden' name='grpid1' id='grpid1' value=''>
+<input type='hidden' name='user_name1' id='user_name1' value=''>
 <input type='text' class='bot' name='fake1' id="fake1"></input>
 <p><input type = "submit" id="chatsubmit" name= "chatsubmit" class="formsubmit" value = "Post"></p>
 </form>

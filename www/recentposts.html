@@ -16,6 +16,15 @@
     <script type="text/javascript">
 document.addEventListener('deviceready', this.onDeviceReady, false);	
 function onDeviceReady() {
+var items = window.localStorage.getItem('user_name')
+if (items === null || items.length === 0)
+{
+    window.location = "index.html";
+}
+else
+{
+	//User is logged in!
+}
 $('#posts').load('http://www.bunchofus.com/app/recentposts.php');
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
 };	

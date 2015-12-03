@@ -14,7 +14,21 @@
     <script type="text/javascript">
 document.addEventListener('deviceready', this.onDeviceReady, false);	
 function onDeviceReady() {
+var items = window.localStorage.getItem('user_name');
+if (items === null || items.length === 0)
+{
+    window.location = "index.html";
+}
+else
+{
+	//User is logged in!
+}
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
+document.getElementById("thisuser").innerHTML = localStorage.getItem("user_name");
+$('#remove').click(function() {
+localStorage.removeItem("user_name");
+window.location = "index.html";
+});
 };	
     </script>
  <script src="js/bootstrap.js"></script>
@@ -55,7 +69,7 @@ $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
 <li><a href="search.html">Search</a></li>
 <li><a href="notifications.html">Notifications</a></li>
 <li><a href="settings.html?userid='theSteveDowling'">Settings</a></li>
-		<li><a href="index.html">Logout</a></li>
+		<li><a href="#" id = "remove">Logout</a></li>
 	</ul>
 	</nav>
 	<br />
