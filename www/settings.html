@@ -15,7 +15,7 @@
     <script type="text/javascript">
 document.addEventListener('deviceready', this.onDeviceReady, false);	
 function onDeviceReady() {
-var items = window.localStorage.getItem('user_name')
+var items = window.localStorage.getItem('user_name');
 if (items === null || items.length === 0)
 {
     window.location = "index.html";
@@ -27,19 +27,90 @@ else
 var newURL = window.location.href;
 var pathArray = window.location.href.split( '=' );
 var secondLevelLocation = pathArray[1];
-var newLocation = secondLevelLocation.replace(/%27/g, "");
+var newLocation = items.replace(/%27/g, "");
 document.getElementById('newusername').value = newLocation;
 document.getElementById('oldusername').value = newLocation;
+document.getElementById('username1').value = newLocation;
+var infourl = "http://www.bunchofus.com/app/emailforform.php?username=" + newLocation;
+var infourl2 = "http://www.bunchofus.com/app/profileforform.php?username=" + newLocation;
+var infourl3 = "http://www.bunchofus.com/app/grpnotifyforform.php?username=" + newLocation;
+var infourl4 = "http://www.bunchofus.com/app/friendforform.php?username=" + newLocation;
+var infourl5 = "http://www.bunchofus.com/app/fanforform.php?username=" + newLocation;
+var infourl6 = "http://www.bunchofus.com/app/postforform.php?username=" + newLocation;
+
+ $.ajax({
+	type: 'GET',
+	url: infourl,
+	success: function(data) {
+   $('#email1').val(data);
+  },
+  error: function() {
+    alert('Did not work');
+  }
+    });
+    
+ $.ajax({
+	type: 'GET',
+	url: infourl2,
+	success: function(data) {
+   $('#uploadcaption').val(data);
+  },
+  error: function() {
+    alert('Did not work');
+  }
+    });
+    
+     $.ajax({
+	type: 'GET',
+	url: infourl3,
+	success: function(data) {
+   $('#grpnotify').val(data);
+  },
+  error: function() {
+    alert('Did not work');
+  }
+    });
+    
+         $.ajax({
+	type: 'GET',
+	url: infourl4,
+	success: function(data) {
+   $('#friendnotify').val(data);
+  },
+  error: function() {
+    alert('Did not work');
+  }
+    });
+    
+         $.ajax({
+	type: 'GET',
+	url: infourl5,
+	success: function(data) {
+   $('#fanallow').val(data);
+  },
+  error: function() {
+    alert('Did not work');
+  }
+    });
+    
+         $.ajax({
+	type: 'GET',
+	url: infourl6,
+	success: function(data) {
+   $('#newgrouppost').val(data);
+  },
+  error: function() {
+    alert('Did not work');
+  }
+    });
+
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
-/*
-$("#creategroup").submit(function(event){
+$("#changeuser").submit(function(event){
     event.preventDefault();
-    $.post( 'http://www.bunchofus.com/app/creategroup.php', $("#creategroup").serialize(), function(data){
+    $.post( 'http://www.bunchofus.com/app/#', $("#changeuser").serialize(), function(data){
         $("#result").html(data);
-        $('#creategroup')[0].reset();
     });
 });
-*/
 };	
     </script>
  <script src="js/bootstrap.js"></script>
@@ -76,13 +147,12 @@ $("#creategroup").submit(function(event){
 	</div>
 	<br />
 	<div class="clear"></div>
-	<form name='changeuser' id='changeuser' class="bnchform" method ='post'>
-		<fieldset>
-<h3>Change Username</h3>
-<p><label for = "username">Username: </label><input type = "text" name = 'newusername' id='newusername' value=''></input></p>
+	
+<form method="post" id="changeuser" name="changeuser" class="settingform" enctype="multipart/form-data">
+	<h3>Change Username</h3>
+<p><input type = "text" name = 'newusername' id='newusername' class="forminput" value=''></input></p>
 <input type='hidden' name='oldusername' id='oldusername' value='' />
-<p class = "submit"><input type = "submit" class="submitbtn" name= "changeusersubmit" value = "Change Username"></p>
-</fieldset>
+<p><input type = "submit" id="changeusersubmit" name= "changeusersubmit" class="formsubmit" value = "Change Username"></p>
 </form>
 <div class="clear"></div>
 <br />
@@ -90,17 +160,14 @@ $("#creategroup").submit(function(event){
 	
 </div>
 <div class="clear"></div>
-<form name='updateinfo' id='updateinfo' class="bnchform" method ='POST'>
-	<fieldset>
+<form name='updateinfo' id='updateinfo' class="settingform" enctype="multipart/form-data" method ='POST'>
 <h3>Update Information</h3>
-<p><label for = "username">Username: </label><input type = "text" readonly='readonly' class='uneditable' name = 'username' <?php echo("VALUE=\"".$userdbme."\"");?>></input></p>
-<p><label for = "email">Email: </label><input type = "text" name = 'email' <?php echo("VALUE=\"".$emaildbme."\"");?>></input><br /></p>
-<p><label for = "newpassword">Old Pass: </label><input type = "password" name = 'oldpassword'></input><br /></p>
-<p><label for = "newpassword">New Pass: </label><input type = "password" name = 'newpassword'></input><br /></p>
-<p><label for = "repeatpassword">Confirm Pass: </label><input type = "password" name = 'repeatpassword'></input><br /></p>
-<input type='text' class='bot' name='fake1'></input>
-<p class = "submit"><input type = "submit" class="submitbtn" name= "settingsubmit" value = "Update"></p>
-</fieldset>
+<p><input type = "text" readonly='readonly' class="forminput" name = 'username1' id='username1' value=''></input></p>
+<p><input type = "email" class="forminput" name = 'email1' id='email1' value=''></input></p>
+<p><input type = "password" class="forminput" name = 'oldpassword' id="oldpassword" placeholder="Old Password"></input></p>
+<p><input type = "password" class="forminput" name = 'newpassword' id="newpassword" placeholder="New Password"></input></p>
+<p><input type = "password" class="forminput" name = 'repeatpassword' id="repeatpassword" placeholder="Confirm Password"></input><br /></p>
+<p><input type = "submit" class="formsubmit" name= "settingsubmit" id = "settingsubmit" value = "Update Info"></p>
 </form>
 <div class="clear"></div>
 <br />
@@ -108,18 +175,13 @@ $("#creategroup").submit(function(event){
 	
 </div>
 <div class="clear"></div>
-<form enctype="multipart/form-data" name='updprofile' id='updprofile' class="bnchform" method ='POST'>
-<fieldset>
+<form enctype="multipart/form-data" name='updprofile' id='updprofile' class="settingform" method ='POST'>
 <h3>Update Profile</h3>
-Choose your image here:
-<input name="uploaded_file" type="file"/><br />
-<input type='hidden' name='profilename' value='<?php echo $userdbme; ?>'>
-<p><span id="counter"></span><br />
-<textarea rows = "5" name = 'uploadcaption' cols='25' id='uploadcaption' maxlength='100' onkeyup='return ismaxlength(this)'><?= "$profiledbme" ?></textarea>
+<p>New Image: <input class="forminput" name="uploaded_file" id="uploaded_file" type="file"/></p>
+<input type='hidden' name='oldusername' id='oldusername' value='' />
+<p><textarea rows = "3" name = 'uploadcaption' id='uploadcaption' class="formarea" placeholder="Update Profile" maxlength='100' onkeyup='return ismaxlength(this)' value=''></textarea>
 </p>
-<input type='text' class='bot' name='fake1'></input>
-<p class = "submit"><input type = "submit" class="submitbtn" name= "profilesubmit" value = "Post"></p>
-</fieldset>
+<p><input type = "submit" class="formsubmit" name= "profilesubmit" id= "profilesubmit" value = "Update Profile"></p>
 </form>
 <div class="clear"></div>
 <br />
@@ -127,17 +189,15 @@ Choose your image here:
 	
 </div>
 <div class="clear"></div>
-<form enctype="multipart/form-data" name='notify' name='notify' class="bnchform" method ='POST'>
-<fieldset>
+<div id="grpntfy2"></div>
+<form enctype="multipart/form-data" name='notify' name='notify' class="settingform" method ='POST'>
 <h3>Notification Settings</h3>
-E-Mail Notifications Of Group Request: <select name="grpnotify"><option value="<?php echo $grpnotifyme;?>"><?php echo $grpnotifyme;?></option><option value="Yes">Yes</option><option value="No">No</option></select><br /><br />
-E-Mail Notifications Of Friend Request: <select name="friendnotify"><option value="<?php echo $friendnotifyme;?>"><?php echo $friendnotifyme;?></option><option value="Yes">Yes</option><option value="No">No</option></select><br /><br />
-Allow User Access To Post On Fan Page: <select name="fanallow"><option value="<?php echo $fanallowme;?>"><?php echo $fanallowme;?></option><option value="All Users">All Users</option><option value="Friends Only">Friends Only</option></select><br /><br />
-Send E-Mail If New Group Post: <select name="newgrouppost"><option value="<?php echo $sendemailme;?>"><?php echo $formtimeme;?></option><option value=0>Never E-Mail</option><option value=30>30 Minutes Apart</option><option value=60>60 Minutes Apart</option><option value=240>4 Hours Apart</option><option value=720>12 Hours Apart</option><option value=1440>24 Hours Apart</option><option value=10080>7 Days Apart</option></select>
+E-Mail Notifications Of Group Request: <select name="grpnotify" id="grpnotify"><option value=""></option><option value="Yes">Yes</option><option value="No">No</option></select><br /><br />
+E-Mail Notifications Of Friend Request: <select name="friendnotify" id="friendnotify"><option value=""></option><option value="Yes">Yes</option><option value="No">No</option></select><br /><br />
+Allow User Access To Post On Fan Page: <select name="fanallow" id="fanallow"><option value=""></option><option value="All Users">All Users</option><option value="Friends Only">Friends Only</option></select><br /><br />
+Send E-Mail If New Group Post: <select name="newgrouppost" id="newgrouppost"><option value=""></option><option value=0>Never E-Mail</option><option value=30>30 Minutes Apart</option><option value=60>60 Minutes Apart</option><option value=240>4 Hours Apart</option><option value=720>12 Hours Apart</option><option value=1440>24 Hours Apart</option><option value=10080>7 Days Apart</option></select>
 </p>
-<input type='text' class='bot' name='fake1'></input>
-<p class = "submit"><input type = "submit" class="submitbtn" name= "notifysubmit" value = "Submit"></p>
-</fieldset>
+<p><input type = "submit" name= "notifysubmit" id= "notifysubmit" class="formsubmit" value = "Update Settings"></p>
 </form>
 <div class="clear"></div>
 <br />

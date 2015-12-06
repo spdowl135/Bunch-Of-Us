@@ -15,7 +15,7 @@
     <script type="text/javascript">
 document.addEventListener('deviceready', this.onDeviceReady, false);	
 function onDeviceReady() {
-var items = window.localStorage.getItem('user_name')
+var items = window.localStorage.getItem('user_name');
 if (items === null || items.length === 0)
 {
     window.location = "index.html";
@@ -25,15 +25,34 @@ else
 	//User is logged in!
 }
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
-/*
-$("#creategroup").submit(function(event){
+$("#acceptfr").submit(function(event){
     event.preventDefault();
-    $.post( 'http://www.bunchofus.com/app/creategroup.php', $("#creategroup").serialize(), function(data){
-        $("#result").html(data);
-        $('#creategroup')[0].reset();
+    $.post( 'http://www.bunchofus.com/app/search.php', $("#acceptfr").serialize(), function(data){
+        $("#results").html(data);
+        $('#searchform')[0].reset();
     });
 });
-*/
+$("#denyfr").submit(function(event){
+    event.preventDefault();
+    $.post( 'http://www.bunchofus.com/app/search.php', $("#denyfr").serialize(), function(data){
+        $("#results").html(data);
+        $('#searchform')[0].reset();
+    });
+});
+$("#acceptgr").submit(function(event){
+    event.preventDefault();
+    $.post( 'http://www.bunchofus.com/app/search.php', $("#acceptgr").serialize(), function(data){
+        $("#results").html(data);
+        $('#searchform')[0].reset();
+    });
+});
+$("#denygr").submit(function(event){
+    event.preventDefault();
+    $.post( 'http://www.bunchofus.com/app/search.php', $("#denygr").serialize(), function(data){
+        $("#results").html(data);
+        $('#searchform')[0].reset();
+    });
+});
 };	
     </script>
  <script src="js/bootstrap.js"></script>
@@ -68,16 +87,16 @@ $("#creategroup").submit(function(event){
 <div id = "friendphp">
 	
 </div>
-<form action='http://www.bunchofus.com/mobile/confirmfriend.php' method='post'>
+<form method='post' id="acceptfr" name="acceptfr" class="searchform" enctype="multipart/form-data">
 <input type='hidden' name='user2' value='<?php echo $yoozer2; ?>'>
 <input type='hidden' name='me' value='<?php echo $userdbme; ?>'>
-<input type='text' class='bot' name='fake1'></input><input type='Submit' name='confirm-submit' class='search' value='Confirm Friend'>
+<input type='text' class='bot' name='fake1'></input><input type='Submit' name='confirm-submit' class="formsubmit" value='Confirm Friend'>
 </form>
 <div class="clear"></div>
-<form action='http://www.bunchofus.com/mobile/denyfriend.php' method='post'>
+<form method='post' id="denyfr" name="denyfr" class="searchform" enctype="multipart/form-data">
 <input type='hidden' name='user3' value='<?php echo $yoozer2; ?>'>
 <input type='hidden' name='me' value='<?php echo $userdbme; ?>'>
-<input type='text' class='bot' name='fake1'></input><input type='Submit' name='remove-submit' class='search' value='Deny Friend'>
+<input type='text' class='bot' name='fake1'></input><input type='Submit' name='remove-submit' class="formsubmit" value='Deny Friend'>
 </form>
 <br />
 <div class="clear"></div>
@@ -85,18 +104,18 @@ $("#creategroup").submit(function(event){
 <div id = "grpphp">
 	
 </div>
-<form action='http://www.bunchofus.com/mobile/acceptgroup.php' method='post'>
+<form method='post' id="acceptgr" name="acceptgr" class="searchform" enctype="multipart/form-data">
 <input type='hidden' name='reqid' value='<?php echo $request2a; ?>'>
 <input type='hidden' name='grpid' value='<?php echo $grpidact2a; ?>'>
 <input type='hidden' name='grpurl' value='<?php echo $grpurl2aa; ?>'>
 <input type='hidden' name='grpactive' value='<?php echo $active2aa; ?>'>
 <input type='hidden' name='me' value='<?php echo $userdbme; ?>'>
-<input type='text' class='bot' name='fake1'></input><input type='Submit' name='confirm-submit' class='search' value='Accept Request'>
+<input type='text' class='bot' name='fake1'></input><input type='Submit' name='confirm-submit' class="formsubmit" value='Accept Request'>
 </form>
 <div class="clear"></div>
-<form action='http://www.bunchofus.com/mobile/declinegroup.php' method='post'>
+<form method='post' id="denygr" name="denygr" class="searchform" enctype="multipart/form-data">
 <input type='hidden' name='reqid' value='<?php echo $request2a; ?>'>
-<input type='text' class='bot' name='fake1'></input><input type='Submit' name='remove-submit' class='search' value='Decline Request'>
+<input type='text' class='bot' name='fake1'></input><input type='Submit' name='remove-submit' class="formsubmit" value='Decline Request'>
 </form>
 <br />
 </div>

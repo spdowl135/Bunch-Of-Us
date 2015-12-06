@@ -188,7 +188,7 @@ src: url('bendable.ttf'),
 	color: #ee1c11;
 	text-decoration: none;
 	top: 2px;
-	font-size: 32px;
+	font-size: 36px;
 	padding-bottom: 2px;
 }
 
@@ -322,15 +322,23 @@ background-color: #b7b7ff;
 	left: 0;
 	text-align: center;
 	position: fixed;
-	height: 55px;
+	height: 80px;
 	box-shadow: 1px;
 z-index: 1;
+margin-top: 20px;
+}
+
+#statusbar {
+	height: 20px;
+	width: 100%;
+	z-index: 100;
+	position: fixed;
 }
 
 #content {
 	background-color: white;
-	font-size: 18px;
-	margin-top:55px;
+	font-size: 22px;
+	margin-top:100px;
 }
 
 .bunchofus {
@@ -346,18 +354,31 @@ z-index: 1;
 	float: right;
 	display: block;
 	cursor: pointer;
-	width: 50px;
-	height: 50px;
+	width: 70px;
+	height: 70px;
 }
 
 #homebutton {
 	float: left;
 	display: block;
 	cursor: pointer;
-	width: 50px;
-	height: 50px;
+	width: 70px;
+	height: 70px;
 }
 
+.settingform {
+	background-color: #F1EAEA;
+}
+
+.settingform h3 {
+	text-align: center;
+	font-weight: bolder;
+	padding-top: 5px;
+}
+
+#showemail {
+	display: none;
+}
 /* Cell Phone Portrait*/
 @media only screen 
     and (max-device-width: 799px), 
