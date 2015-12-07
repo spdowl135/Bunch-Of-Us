@@ -23,7 +23,8 @@ else
 {
 	//User is logged in!
 }
-$('#mygroups').load('http://www.bunchofus.com/app/mygroups.php');
+var grpurl = "http://www.bunchofus.com/app/mygroups.php?userid=" + items;
+$('#mygroups').load(grpurl);
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
 };	
     </script>
