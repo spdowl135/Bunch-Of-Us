@@ -40,6 +40,7 @@ var dataurl = "http://www.bunchofus.com/app/groupshow.php?grpid=" + secondLevelL
 /*--------Form Processing-------*/
 document.getElementById('grpid1').value = secondLevelLocation;
 document.getElementById('user_name1').value = items;
+/*
 $('form').submit(function(){
 var formData = $("#myForm").serialize();
  $.ajax({
@@ -57,6 +58,10 @@ var formData = $("#myForm").serialize();
 	return false;
 });
 /*-------End Form Processing---------*/
+
+$('#myForm').ajaxForm({
+                resetForm: true
+            });
 
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
 $('.crtgrpheadline').load(grpnmurl);
@@ -93,7 +98,7 @@ $('#check').load(dataurl);
 			
 		</div>
 		<hr />
-<form method="post" id="myForm" name="myForm" class="textform" enctype="multipart/form-data">
+<form method="post" id="myForm" name="myForm" class="textform" enctype="multipart/form-data" action="http://www.bunchofus.com/app/upload.php">
 <p><input name="uploaded_file" id="uploaded_file" type="file" class="forminput"/></p>
 <p><span id="counter"></span><br />
 <textarea rows = "4" name = 'uploadcaption' id='uploadcaption' class="formarea" placeholder="Chat Here..." maxlength='200' onkeyup='return ismaxlength(this)'></textarea>
