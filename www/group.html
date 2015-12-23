@@ -5,12 +5,13 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />        <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="css/jqmobile.css" />
         <link rel="stylesheet" type="text/css" href="css/bunch.css" />
              <script type="text/javascript" src="cordova.js"></script>
              <script src="js/jquery-1.11.3.js" type="text/javascript"></script>
+             <script src="js/jqmobile.js" type="text/javascript"></script>
               <script type="text/javascript" src="js/jqueryform.js"></script>
              <!--   <script src="primary.js" type="text/javascript"></script> -->
     <script type="text/javascript">
@@ -87,7 +88,6 @@ $('#check').load(dataurl);
 </script> 
   </head>      
 	<body>
-<div id = "all">
 <div id="fb-root"></div>	
 <div id="topbar">
 
@@ -101,11 +101,11 @@ $('#check').load(dataurl);
 <form method="post" id="myForm" name="myForm" class="textform" enctype="multipart/form-data" action="http://www.bunchofus.com/app/upload.php">
 <p><input name="uploaded_file" id="uploaded_file" type="file" class="forminput"/></p>
 <p><span id="counter"></span><br />
-<textarea rows = "4" name = 'uploadcaption' id='uploadcaption' class="formarea" placeholder="Chat Here..." maxlength='200' onkeyup='return ismaxlength(this)'></textarea>
+<textarea rows = "5" name = 'uploadcaption' id='uploadcaption' class="formarea" placeholder="Chat Here..." maxlength='200' onkeyup='return ismaxlength(this)'></textarea>
 </p>
 <input type='hidden' name='grpid1' id='grpid1' value=''>
 <input type='hidden' name='user_name1' id='user_name1' value=''>
-<input type='text' class='bot' name='fake1' id="fake1"></input>
+<!--<input type='text' class='bot' name='fake1' id="fake1"></input>-->
 <p><input type = "submit" id="chatsubmit" name= "chatsubmit" class="formsubmit" value = "Post"></p>
 </form>
 	<br />
@@ -118,10 +118,12 @@ $('#check').load(dataurl);
 </div>
 </div>
 <div class="clear"></div>
-<div id= "footer" >
-
+<div id = "bottombar">
+	<a onclick="window.location='myhome.html'">Home</a>
+	<a onclick="location.reload();">Refresh</a>
+	<a onclick="window.location='creategroup.html'">Create</a>
+	<a onclick="window.location='mygroups.html'">Groups</a>
 </div>
-	</div>	
         <script type="text/javascript">
             app.initialize();
         </script>
