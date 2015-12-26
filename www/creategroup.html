@@ -5,7 +5,7 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />        <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/bunch.css" />
@@ -25,6 +25,7 @@ else
 	//User is logged in!
 }
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
+document.getElementById('user_name1').value = items;
 $("#creategroup").submit(function(event){
     event.preventDefault();
     $.post( 'http://www.bunchofus.com/app/creategroup.php', $("#creategroup").serialize(), function(data){
@@ -51,7 +52,6 @@ $("#creategroup").submit(function(event){
 </script> 
   </head>      
 	<body>
-<div id = "all">
 <div id="fb-root"></div>	
 <div id="topbar">
 
@@ -69,6 +69,7 @@ $("#creategroup").submit(function(event){
 		<hr />
 <form method="post" id="creategroup" name="creategroup" class="creategroup">
 <p><input type = "text" class="forminput" id="grpname" name = 'grpname' maxlength='50' placeholder="Group Name..."></input></p>
+<input type='hidden' name='user_name1' id='user_name1' value=''>
 <p><span id="counter"></span><br />
 <textarea rows = "4" name = 'uploadcaption' id='uploadcaption' class="formarea" placeholder="Description (optional)..." maxlength='100' onkeyup='return ismaxlength(this)'></textarea>
 </p>
@@ -98,10 +99,12 @@ $("#creategroup").submit(function(event){
 	</div>
 </div>
 <div class="clear"></div>
-<div id= "footer" >
-
-</div>
-	</div>	
+<div id = "bottombar">
+	<a onclick="window.location='myhome.html'">Home</a>
+	<a onclick="location.reload();">Refresh</a>
+	<a onclick="window.location='creategroup.html'">Create</a>
+	<a onclick="window.location='mygroups.html'">Groups</a>
+</div>	
         <script type="text/javascript">
             app.initialize();
         </script>

@@ -5,12 +5,13 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />        <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="css/bunch.css" />
              <script type="text/javascript" src="cordova.js"></script>
              <script src="js/jquery-1.11.3.js" type="text/javascript"></script>
+             <script type="text/javascript" src="js/jqueryform.js"></script>
              <!--   <script src="primary.js" type="text/javascript"></script> -->
     <script type="text/javascript">
 document.addEventListener('deviceready', this.onDeviceReady, false);	
@@ -31,6 +32,7 @@ var newLocation = items.replace(/%27/g, "");
 document.getElementById('newusername').value = newLocation;
 document.getElementById('oldusername').value = newLocation;
 document.getElementById('username1').value = newLocation;
+document.getElementById('username2').value = newLocation;
 var infourl = "http://www.bunchofus.com/app/emailforform.php?username=" + newLocation;
 var infourl2 = "http://www.bunchofus.com/app/profileforform.php?username=" + newLocation;
 var infourl3 = "http://www.bunchofus.com/app/grpnotifyforform.php?username=" + newLocation;
@@ -105,10 +107,34 @@ var infourl6 = "http://www.bunchofus.com/app/postforform.php?username=" + newLoc
     });
 
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
+
 $("#changeuser").submit(function(event){
     event.preventDefault();
-    $.post( 'http://www.bunchofus.com/app/#', $("#changeuser").serialize(), function(data){
-        $("#result").html(data);
+    $.post( 'http://www.bunchofus.com/app/changeuser.php', $("#changeuser").serialize(), function(data){
+        $("#forma").html(data);
+    });
+});
+
+$("#updateinfo").submit(function(event){
+    event.preventDefault();
+    $.post( 'http://www.bunchofus.com/app/updateinfo.php', $("#updateinfo").serialize(), function(data){
+        $("#formb").html(data);
+    });
+});
+
+var goodresp = "Good";
+
+var options = {
+	target: '#formc',
+	success: goodresp
+};
+
+$('#updprofile').ajaxForm(options);
+
+$("#notify").submit(function(event){
+    event.preventDefault();
+    $.post( 'http://www.bunchofus.com/app/changenotify.php', $("#notify").serialize(), function(data){
+        $("#formd").html(data);
     });
 });
 };	
@@ -130,7 +156,6 @@ $("#changeuser").submit(function(event){
 </script>  
   </head>      
 	<body>
-<div id = "all">
 <div id="fb-root"></div>	
 <div id="topbar">
 
@@ -175,7 +200,7 @@ $("#changeuser").submit(function(event){
 	
 </div>
 <div class="clear"></div>
-<form enctype="multipart/form-data" name='updprofile' id='updprofile' class="settingform" method ='POST'>
+<form enctype="multipart/form-data" name='updprofile' id='updprofile' class="settingform" method ='POST' action='http://www.bunchofus.com/app/editprofile.php'>
 <h3>Update Profile</h3>
 <p>New Image: <input class="forminput" name="uploaded_file" id="uploaded_file" type="file"/></p>
 <input type='hidden' name='oldusername' id='oldusername' value='' />
@@ -189,14 +214,13 @@ $("#changeuser").submit(function(event){
 	
 </div>
 <div class="clear"></div>
-<div id="grpntfy2"></div>
-<form enctype="multipart/form-data" name='notify' name='notify' class="settingform" method ='POST'>
+<form enctype="multipart/form-data" name='notify' id='notify' class="settingform" method ='POST'>
 <h3>Notification Settings</h3>
 E-Mail Notifications Of Group Request: <select name="grpnotify" id="grpnotify"><option value=""></option><option value="Yes">Yes</option><option value="No">No</option></select><br /><br />
 E-Mail Notifications Of Friend Request: <select name="friendnotify" id="friendnotify"><option value=""></option><option value="Yes">Yes</option><option value="No">No</option></select><br /><br />
 Allow User Access To Post On Fan Page: <select name="fanallow" id="fanallow"><option value=""></option><option value="All Users">All Users</option><option value="Friends Only">Friends Only</option></select><br /><br />
 Send E-Mail If New Group Post: <select name="newgrouppost" id="newgrouppost"><option value=""></option><option value=0>Never E-Mail</option><option value=30>30 Minutes Apart</option><option value=60>60 Minutes Apart</option><option value=240>4 Hours Apart</option><option value=720>12 Hours Apart</option><option value=1440>24 Hours Apart</option><option value=10080>7 Days Apart</option></select>
-</p>
+<p><input type='hidden' name='username2' id='username2' value='' /></p>
 <p><input type = "submit" name= "notifysubmit" id= "notifysubmit" class="formsubmit" value = "Update Settings"></p>
 </form>
 <div class="clear"></div>
@@ -207,10 +231,12 @@ Send E-Mail If New Group Post: <select name="newgrouppost" id="newgrouppost"><op
 <div class="clear"></div>
 </div>
 <div class="clear"></div>
-<div id= "footer" >
-
+<div id = "bottombar">
+	<a onclick="window.location='myhome.html'">Home</a>
+	<a onclick="location.reload();">Refresh</a>
+	<a onclick="window.location='creategroup.html'">Create</a>
+	<a onclick="window.location='mygroups.html'">Groups</a>
 </div>
-	</div>	
         <script type="text/javascript">
             app.initialize();
         </script>
