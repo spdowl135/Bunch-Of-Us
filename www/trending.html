@@ -5,10 +5,14 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />        <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
+		<meta<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />       <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        <!--<link rel="stylesheet" type="text/css" href="css/jqmobile.css" />-->
         <link rel="stylesheet" type="text/css" href="css/bunch.css" media="screen"/>
              <script type="text/javascript" src="cordova.js"></script>
              <script src="js/jquery-1.11.3.js" type="text/javascript"></script>
+             <!--<script src="js/jqmobile.js" type="text/javascript"></script>-->
+              <script type="text/javascript" src="js/jqueryform.js"></script>
              <!--   <script src="primary.js" type="text/javascript"></script> -->
     <script type="text/javascript">
 document.addEventListener('deviceready', this.onDeviceReady, false);	
@@ -23,6 +27,7 @@ else
 	//User is logged in!
 }
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
+$('#trendinggrps').load('http://www.bunchofus.com/app/trending.php');
 };	
     </script>
  <script src="js/bootstrap.js"></script>
@@ -48,21 +53,13 @@ $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
 </div>
 <div class="clear"></div>
 <div id = "content">
-	<h3><div id = "thisuser">
-		
-	</div>
-		</h3>
-				<div class="crtgrpheadline">
-			<h2>Create Group</h2>
-		</div>
-		<hr />
-		<nav id="primary_nav">
-	<ul>
+				
+			<h2>Popular Groups</h2>
+
 <div id="trendinggrps">
 	
 </div>
-	</ul>
-	</nav>
+
 	<br />
 </div>
 <div class="clear"></div>

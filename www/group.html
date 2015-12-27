@@ -35,7 +35,7 @@ var viewportwidth = window.innerWidth;
 var newURL = window.location.href;
 var pathArray = window.location.href.split( '=' );
 var secondLevelLocation = pathArray[1];
-document.getElementById("showurl").innerHTML = secondLevelLocation;
+//document.getElementById("showurl").innerHTML = secondLevelLocation;
 var grpnmurl = "http://www.bunchofus.com/app/groupname.php?grpid=" + secondLevelLocation; 
 var dataurl = "http://www.bunchofus.com/app/groupshow.php?grpid=" + secondLevelLocation + "&thewidth=" + viewportwidth;
 /*------End of URL info--------*/
@@ -69,7 +69,7 @@ $('#myForm').ajaxForm({
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
 $('.crtgrpheadline').load(grpnmurl);
 setInterval(function() {
-$('#check').load(dataurl);
+$('#posts').load(dataurl);
 }, 3000); // the "3000" here refers to the time to refresh the div.  it is in milliseconds. 
 };	
     </script>
@@ -112,10 +112,7 @@ $('#check').load(dataurl);
 </form>
 	<br />
 	<div class="clear"></div>
-<div id="check">
-	
-</div>
-<div id = "showurl">
+<div id="posts">
 	
 </div>
 </div>
