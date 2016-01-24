@@ -8,10 +8,13 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />        <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
         <link rel="stylesheet" type="text/css" href="css/bunch.css" />
              <script type="text/javascript" src="cordova.js"></script>
              <script src="js/jquery-1.11.3.js" type="text/javascript"></script>
-             <!--   <script src="primary.js" type="text/javascript"></script> -->
+             
+              <script type="text/javascript" src="js/jqueryform.js"></script>
+             <script src="js/jquery-ui.js" type="text/javascript"></script> 
     <script type="text/javascript">
 document.addEventListener('deviceready', this.onDeviceReady, false);	
 function onDeviceReady() {
@@ -47,7 +50,7 @@ var formData = $("#searchform").serialize();
 $("#searchform").submit(function(event){
     event.preventDefault();
     $.post( 'http://www.bunchofus.com/app/search.php', $("#searchform").serialize(), function(data){
-        $("#results").html(data);
+        $("#searchresults").html(data);
         $('#searchform')[0].reset();
     });
 });
@@ -88,7 +91,7 @@ $("#searchform").submit(function(event){
 </form>
 	<br />
 		<div class="clear"></div>
-<div id="results">
+<div id="searchresults">
 	
 </div>
 </div>

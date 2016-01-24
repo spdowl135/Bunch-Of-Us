@@ -288,10 +288,22 @@ padding-top: 8px;
 	font-size: 45px;
 }
 
+.crtgrpheadline2 {
+	text-align: center;
+	font-size: 28px;
+}
+
 .forminput {
 	width: 100%;
 	padding: 20px;
 	font-size: 22px;
+	background: white;
+}
+
+.medforminput {
+	width: 100%;
+	padding: 19px;
+	font-size: 18px;
 	background: white;
 }
 
@@ -425,6 +437,31 @@ margin: 0;
 
 .groupslist li a {
 	text-decoration: none;
+}
+
+.ui-menu .ui-menu-item a{
+    height:15px;
+font-size:12px;}
+
+#dialoggroup {
+	padding: 15px;
+	text-align: center;
+}
+
+.modalslct {
+	padding: 15px;
+	font-size: 16px;
+}
+
+.modalbtn {
+	padding: 15px;
+	border-radius: 20px;
+	font-size: 16px;
+	
+}
+
+#searchresults {
+	font-size: 16px;
 }
 
 /*Cell Phone Portrait

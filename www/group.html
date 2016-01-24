@@ -7,13 +7,13 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />        <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-        
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
         <link rel="stylesheet" type="text/css" href="css/bunch.css" />
              <script type="text/javascript" src="cordova.js"></script>
              <script src="js/jquery-1.11.3.js" type="text/javascript"></script>
              
               <script type="text/javascript" src="js/jqueryform.js"></script>
-             <!--   <script src="primary.js" type="text/javascript"></script> -->
+             <script src="js/jquery-ui.js" type="text/javascript"></script> 
     <script type="text/javascript">
 document.addEventListener('deviceready', this.onDeviceReady, false);	
 function onDeviceReady() {
@@ -43,24 +43,8 @@ var dataurl = "http://www.bunchofus.com/app/groupshow.php?grpid=" + secondLevelL
 /*--------Form Processing-------*/
 document.getElementById('grpid1').value = secondLevelLocation;
 document.getElementById('user_name1').value = items;
-/*
-$('form').submit(function(){
-var formData = $("#myForm").serialize();
- $.ajax({
-	type: 'POST',
-	data: formData,
-	url: 'http://www.bunchofus.com/app/upload.php',
-	success: function(data){
-	$('#myForm')[0].reset();
-	},
-	error: function(){
-	console.log(data);
-	alert('There was an error adding your comment');
-	}
-    });
-	return false;
-});
-/*-------End Form Processing---------*/
+document.getElementById('grpid2').value = secondLevelLocation;
+document.getElementById('user_name2').value = items;
 
 $('#myForm').ajaxForm({
                 resetForm: true
@@ -71,6 +55,40 @@ $('.crtgrpheadline').load(grpnmurl);
 setInterval(function() {
 $('#posts').load(dataurl);
 }, 3000); // the "3000" here refers to the time to refresh the div.  it is in milliseconds. 
+var grpinurl = "http://www.bunchofus.com/app/grpingroup.php?grpid=" + secondLevelLocation + "&userid=" + items;  
+$.ajax({
+    url: grpinurl,
+    dataType: "text",
+    type: "GET",
+    success: function (data){
+         //manually insert the page
+         $("#grpingrp").html(data);
+    }
+});
+  $(function() {
+    $( "#dialoggroup" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "fade",
+        duration: 1000
+      }
+    });
+ 
+    $( "#opener" ).click(function() {
+      $( "#dialoggroup" ).dialog( "open" );
+    });
+  });
+  $("#grpsubmit").click(function(event){
+    event.preventDefault();
+    $.post( 'http://www.bunchofus.com/app/statusgrp.php', $("#grpsettings").serialize(), function(data){
+    	//alert($("#inviteform").serialize());
+        $("#statusresult").html(data);
+    });
+});
 };	
     </script>
  <script src="js/bootstrap.js"></script>
@@ -96,6 +114,16 @@ $('#posts').load(dataurl);
 </div>
 <div class="clear"></div>
 <div id = "content">
+	<div id = "dialoggroup"><h4><strong>Update Group Status</strong></h4>
+		<div id = "statusresult"></div>
+		<form id="grpsettings" name="grpsettings" method="post">
+		<div id = "grpingrp"></div>
+		<input type='hidden' name='grpid2' id='grpid2' value=''>
+<input type='hidden' name='user_name2' id='user_name2' value=''>
+<p>
+<input type="button" class="modalbtn" name="grpsubmit" id="grpsubmit" value="Update" />
+</p>
+		</form></div>
 		<div class="crtgrpheadline">
 			
 		</div>
@@ -118,6 +146,10 @@ $('#posts').load(dataurl);
 </div>
 <div class="clear"></div>
 <div id = "bottombar">
+	<a id = "opener">
+	<img src = "http://bunchofus.com/app/Dots.png"
+	height = "32"
+	width = "32"></img></a>
 	<a onclick="window.location='myhome.html'">Home</a>
 	<a onclick="location.reload();">Refresh</a>
 	<a onclick="window.location='creategroup.html'">Create</a>

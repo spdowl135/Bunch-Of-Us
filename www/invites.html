@@ -8,13 +8,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
         <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
         <!--<link rel="stylesheet" type="text/css" href="css/jqmobile.css" />-->
         <link rel="stylesheet" type="text/css" href="css/bunch.css" media="screen"/>
              <script type="text/javascript" src="cordova.js"></script>
              <script src="js/jquery-1.11.3.js" type="text/javascript"></script>
              <!--<script src="js/jqmobile.js" type="text/javascript"></script>-->
               <script type="text/javascript" src="js/jqueryform.js"></script>
-             <!--   <script src="primary.js" type="text/javascript"></script> -->
+               <script src="js/jquery-ui.js" type="text/javascript"></script> 
     <script type="text/javascript">
 document.addEventListener('deviceready', this.onDeviceReady, false);	
 function onDeviceReady() {
@@ -28,11 +29,50 @@ else
 	//User is logged in!
 }
 $('#topbar').load('http://www.bunchofus.com/app/topbar.php');
+document.getElementById('user_name1').value = items;
 document.getElementById("thisuser").innerHTML = localStorage.getItem("user_name");
-$('#remove').click(function() {
-localStorage.removeItem("user_name");
-window.location = "index.html";
+var tagsurl = "http://www.bunchofus.com/app/frnds.php?userid=" + items;
+var invgrpurl = "http://www.bunchofus.com/app/invgrps.php?userid=" + items;
+var invfrndurl = "http://www.bunchofus.com/app/invfrnds2.php?userid=" + items;  
+$.ajax({
+    url: invgrpurl,
+    dataType: "text",
+    type: "GET",
+    success: function (data){
+         //manually insert the page
+         $("#groupstrip").html(data);
+    }
 });
+
+$( "#tags" ).autocomplete({
+      source: tagsurl,
+      minLength: 2
+    });
+
+$("#grpsubmit").click(function(event){
+    event.preventDefault();
+    $.post( 'http://www.bunchofus.com/app/invitemanynew.php', $("#inviteform").serialize(), function(data){
+    	//alert($("#inviteform").serialize());
+        $("#result").html(data);
+        $('#inviteform')[0].reset();
+    });
+});
+/*
+$("#grpsubmit").click(function(event){
+	var formData1 = $("#inviteform").serialize();
+$.ajax({
+    url: 'http://www.bunchofus.com/app/invitemanynew.php',
+    data: formData1,
+    type: "POST",
+    success: function (data){
+         //alert($("#inviteform").serialize());
+        $("#result").html(data);
+        $('#inviteform')[0].reset();
+    }
+});
+});
+*/
+
 };	
     </script>
  <script src="js/bootstrap.js"></script>
@@ -64,22 +104,25 @@ window.location = "index.html";
 	<div id = "thisuser">
 		
 		</div>
-		
+		<div id = "result"></div>
+		<form method="post" name = "inviteform" id = "inviteform">
+		<p>
+			<select name="groupstrip" id = "groupstrip" class="formdrop" /><br />
+			
+</p>
+<input type='hidden' name='user_name1' id='user_name1' value=''>
+<p><input type = "button" id="grpsubmit" name= "grpsubmit" class="formsubmit" value = "Invite Friends"></p>	
+<p>
+<!--	
 		<nav id="primary_nav">
 	<ul>
-		<li><a href="creategroup.html">Create Group</a></li>
-		<li><a href="mygroups.html">My Groups</a></li>
-		<li><a href="recentposts.html">Recent Posts</a></li>
-		<li><a href="friendactivity.html">Friend Activity</a></li>
-		<li><a href="trending.html">Popular Groups</a></li>
-<li><a href="search.html">Search</a></li>
-<li><a href="notifications.html">Notifications</a></li>
-<li><a href="invites.html">Invite</a></li>
-<li><a href="settings.html">Settings</a></li>
-		<li><a href="#" id = "remove">Logout</a></li>
+		<div id = "friendsinv"></div>
 	</ul>
 	</nav>
-
+-->
+<input type = "text" class="medforminput" id = "tags" name = "tags" placeholder = "Friend Name" />
+</p>	
+		</form>
 	<br />
 </div>
 <div class="clear"></div>
