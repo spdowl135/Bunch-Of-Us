@@ -30,30 +30,63 @@ var newURL = window.location.href;
 var pathArray = window.location.href.split( '=' );
 var secondLevelLocation = pathArray[1];
 document.getElementById("crtgrpheadline").innerHTML = secondLevelLocation;
-var curfrndurl = "http://www.bunchofus.com/app/curfrnd.php?frndid=" + secondLevelLocation + "&userid=" + items; 
+var curfrndurl = "http://www.bunchofus.com/app/curfrnd.php?frndid=" + secondLevelLocation + "&userid=" + items;
+var tagsitem = secondLevelLocation.toString(); 
 document.getElementById('user_name1').value = items;
 document.getElementById('friend').value = secondLevelLocation;
+document.getElementById('user_name2').value = items;
+document.getElementById('friend1').value = secondLevelLocation;
+document.getElementById('user_name3').value = items;
+document.getElementById('tags555').value = tagsitem;
+var invgrpurl = "http://www.bunchofus.com/app/invgrps.php?userid=" + items;
 $.ajax({
-    url: curfrndurl,
+    url: invgrpurl,
     dataType: "text",
     type: "GET",
     success: function (data){
          //manually insert the page
-         $("#curstatus").html(data);
+         $("#groupstrip").html(data);
     }
 });
-if ($("#curstatus").text() === "Current Friends") {
-    alert("Yes");
-}
-else
-{
-	alert("No");
-}
+$.ajax({
+    url: curfrndurl,
+    dataType: 'json',
+    type: "GET",
+    success: function (data){
+    	if (data.success) {
+         //manually insert the page
+         $("#addform").hide();
+        }
+        else
+        {
+        	$("#subtform").hide();
+        }
+    },
+  error: function() {
+    //this will trigger in case the server send invalid JSON (or other types of errors)
+    //alert('Doh!');
+    console.log(status, error);
+  }
+});
+
 $("#friendadd").click(function(event){
     event.preventDefault();
-    $.post( 'http://www.bunchofus.com/app/creategroup.php', $("#addfriend").serialize(), function(data){
+    $.post( 'http://www.bunchofus.com/app/addfriend.php', $("#addfriend").serialize(), function(data){
+        location.reload();
+    });
+});
+$("#friendsubt").click(function(event){
+    event.preventDefault();
+    $.post( 'http://www.bunchofus.com/app/removefriend.php', $("#remfriend").serialize(), function(data){
+        location.reload();
+    });
+});
+$("#grpsubmit").click(function(event){
+    event.preventDefault();
+    $.post( 'http://www.bunchofus.com/app/invitemanynew2.php', $("#inviteform").serialize(), function(data){
+    	//alert($("#inviteform").serialize());
         $("#result").html(data);
-        $('#addfriend')[0].reset();
+        $('#inviteform')[0].reset();
     });
 });
 };	
@@ -90,7 +123,6 @@ $("#friendadd").click(function(event){
 			
 		</div>
 		<hr />
-		<div id = "curstatus"></div>
 		<div id = "addform">
 <form method="post" id="addfriend" name="addfriend" class="creategroup">
 <input type='hidden' name='user_name1' id='user_name1' value=''>
@@ -99,9 +131,30 @@ $("#friendadd").click(function(event){
 </form>
 </div>
 	<br />
-	<div id = "result">
+			<div id = "subtform">
+<form method="post" id="remfriend" name="remfriend" class="creategroup">
+<input type='hidden' name='user_name2' id='user_name2' value=''>
+<input type='hidden' name='friend1' id='friend1' value=''>
+<p><input type = "button" id="friendsubt" name= "friendsubt" class="formsubmit" value = "Remove Friend"></p>
+</form>
+</div>
+<br />
+
+	<div class = "clear"></div>
+	<h3>Invite to Group</h3>
+		<form method="post" name = "inviteform" id = "inviteform">
+		<p>
+			<select name="groupstrip" id = "groupstrip" class="formdrop" /><br />
+			
+</p>
+<input type='hidden' name='tags555' id='tags555' value=''>
+<input type='hidden' name='user_name3' id='user_name3' value=''>
+<p><input type = "button" id="grpsubmit" name= "grpsubmit" class="formsubmit" value = "Invite to Group"></p>		
+		</form>
+			<div id = "result">
 		
 	</div>
+	<br />	
 </div>
 <div class="clear"></div>
 <div id = "bottombar">
